@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Penguin.Web.Dynamic</name>
+        <name>Penguin.Web.Dynamic.Local</name>
     </assembly>
     <members>
         <member name="T:Penguin.Web.Dynamic.Constants">
