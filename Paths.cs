@@ -8,16 +8,16 @@
         /// <summary>
         /// The path to check for admin dynamic rendering views
         /// </summary>
-        public const string AdminRenderBase = "/Areas/Admin/Views/Render/";
+        public const string ADMIN_RENDER_BASE = "/Areas/Admin/Views/Render/";
 
         /// <summary>
         /// The path that the dynamic wrapper resides in
         /// </summary>
-        public const string EditBase = "/Areas/Admin/Views/Edit/";
+        public const string EDIT_BASE = "/Areas/Admin/Views/Edit/";
 
         /// <summary>
         /// The path that the dynamic client visible renderers exists in
         /// </summary>
-        public const string RenderBase = "/Views/Render/";
+        public const string RENDER_BASE = "/Views/Render/";
     }
 }

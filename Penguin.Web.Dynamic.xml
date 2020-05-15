@@ -166,17 +166,17 @@
             <param name="typeFullName">If no type is set, the renderer can attempt to use this string value to determine routing</param>
             <param name="fileProvider">A file provider used for checking for the existence of views</param>
         </member>
-        <member name="F:Penguin.Web.Dynamic.Paths.AdminRenderBase">
+        <member name="F:Penguin.Web.Dynamic.Paths.ADMIN_RENDER_BASE">
             <summary>
             The path to check for admin dynamic rendering views
             </summary>
         </member>
-        <member name="F:Penguin.Web.Dynamic.Paths.EditBase">
+        <member name="F:Penguin.Web.Dynamic.Paths.EDIT_BASE">
             <summary>
             The path that the dynamic wrapper resides in
             </summary>
         </member>
-        <member name="F:Penguin.Web.Dynamic.Paths.RenderBase">
+        <member name="F:Penguin.Web.Dynamic.Paths.RENDER_BASE">
             <summary>
             The path that the dynamic client visible renderers exists in
             </summary>

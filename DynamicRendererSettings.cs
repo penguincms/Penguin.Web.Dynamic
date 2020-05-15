@@ -15,7 +15,7 @@ namespace Penguin.Web.Dynamic
         /// A link to the base path for views for the editor.
         /// Points to Paths.EditBase
         /// </summary>
-        public string BasePath { get; set; } = Paths.EditBase;
+        public string BasePath { get; set; } = Paths.EDIT_BASE;
 
         /// <summary>
         /// The name of the view used to render dynamic objects
