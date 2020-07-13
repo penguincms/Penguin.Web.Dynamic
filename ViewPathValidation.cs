@@ -30,8 +30,15 @@ namespace Penguin.Web.Dynamic
         /// <param name="pathsToCheck">A list of {0} format strings to inject the path into</param>
         public ViewPathValidation(string path, IFileProvider fileProvider, List<string> pathsToCheck = null)
         {
-            Contract.Requires(path != null);
-            Contract.Requires(fileProvider != null);
+            if (path is null)
+            {
+                throw new System.ArgumentNullException(nameof(path));
+            }
+
+            if (fileProvider is null)
+            {
+                throw new System.ArgumentNullException(nameof(fileProvider));
+            }
 
             path = path.Replace(".cshtml", "");
 

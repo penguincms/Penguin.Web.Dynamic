@@ -55,7 +55,7 @@ namespace Penguin.Web.Dynamic
         /// </summary>
         /// <param name="type">An optional override type</param>
         /// <param name="property">The IMetaProperty leading to this serialized object</param>
-        /// <param name="fileProvider">A file provider used for checking for the existance of views</param>
+        /// <param name="fileProvider">A file provider used for checking for the existence of views</param>
         public DynamicRenderer(IMetaType type, IMetaProperty property, IFileProvider fileProvider) : this(new DynamicRendererSettings(type, property, fileProvider))
         {
         }
@@ -64,7 +64,7 @@ namespace Penguin.Web.Dynamic
         /// Constructs a new instance of this renderer
         /// </summary>
         /// <param name="property">The IMetaProperty leading to this serialized object</param>
-        /// <param name="fileProvider">A file provider used for checking for the existance of views </param>
+        /// <param name="fileProvider">A file provider used for checking for the existence of views </param>
         public DynamicRenderer(IMetaProperty property, IFileProvider fileProvider) : this(new DynamicRendererSettings(property, fileProvider))
         {
         }
@@ -75,7 +75,10 @@ namespace Penguin.Web.Dynamic
         /// <param name="settings">A collection of settings for the dynamic renderer</param>
         public DynamicRenderer(DynamicRendererSettings settings)
         {
-            Contract.Requires(settings != null);
+            if (settings is null)
+            {
+                throw new System.ArgumentNullException(nameof(settings));
+            }
 
             List<string> renderingOrder = null;
 

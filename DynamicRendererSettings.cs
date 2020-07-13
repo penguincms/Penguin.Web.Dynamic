@@ -61,9 +61,7 @@ namespace Penguin.Web.Dynamic
         /// <param name="fileProvider">A file provider used for checking for the existence of views</param>
         public DynamicRendererSettings(IMetaType type, IMetaProperty property, IFileProvider fileProvider)
         {
-            Contract.Requires(type != null);
-
-            this.Type = type;
+            this.Type = type ?? throw new ArgumentNullException(nameof(type));
             this.TypeFullName = this.Type.FullName;
             this.Property = property;
             this.FileProvider = fileProvider;
@@ -76,11 +74,14 @@ namespace Penguin.Web.Dynamic
         /// <param name="fileProvider">A file provider used for checking for views</param>
         public DynamicRendererSettings(IMetaProperty property, IFileProvider fileProvider)
         {
-            Contract.Requires(property != null);
+            if (property is null)
+            {
+                throw new ArgumentNullException(nameof(property));
+            }
 
             this.Type = property.Type;
             this.TypeFullName = this.Type.FullName;
-            this.Property = property;
+            this.Property = property ?? throw new ArgumentNullException(nameof(property));
             this.FileProvider = fileProvider;
         }
 
@@ -109,7 +110,10 @@ namespace Penguin.Web.Dynamic
         /// <param name="fileProvider">A file provider used for checking for the existence of views</param>
         public DynamicRendererSettings(IMetaObject o, IFileProvider fileProvider)
         {
-            Contract.Requires(o != null);
+            if (o is null)
+            {
+                throw new ArgumentNullException(nameof(o));
+            }
 
             this.FileProvider = fileProvider;
             this.Type = o.Type;
