@@ -12,6 +12,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="3.1.1" />
     <PackageReference Include="Penguin.Extensions.Collections" Version="5.0.1-TA2VU4J" />
-    <PackageReference Include="Penguin.Reflection.Serialization" Version="5.0.1-TA2VU4J" />
+    <PackageReference Include="Penguin.Reflection.Serialization" Version="5.0.1-TA450T9" />
   </ItemGroup>
 </Project>
