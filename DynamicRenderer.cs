@@ -114,6 +114,11 @@ namespace Penguin.Web.Dynamic
                         TypeName = CascadeType.FullName.To("[");
                     }
 
+                    if(settings.Type.IsNullable)
+                    {
+                        TypeName = CascadeType.FullName.To("`") + "." + CascadeType.FullName.FromLast("[").To(",");
+                    }
+
                     if (settings.Property != null && settings.Property.Attributes.AnyNotNull())
                     {
                         //search based on attribute
