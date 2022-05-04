@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.FileProviders;
 using Penguin.Extensions.Collections;
-using Penguin.Extensions.Strings;
+using Penguin.Extensions.String;
 using Penguin.Reflection.Abstractions;
 using Penguin.Reflection.Serialization.Abstractions.Interfaces;
 using System.Collections.Generic;
@@ -114,7 +114,7 @@ namespace Penguin.Web.Dynamic
                         TypeName = CascadeType.FullName.To("[");
                     }
 
-                    if(settings.Type.IsNullable)
+                    if (settings.Type.IsNullable)
                     {
                         TypeName = CascadeType.FullName.To("`") + "." + CascadeType.FullName.FromLast("[").To(",");
                     }
