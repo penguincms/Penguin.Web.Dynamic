@@ -198,7 +198,6 @@
         </member>
         <member name="M:Penguin.Web.Dynamic.ViewPathValidation.#ctor(System.String,Microsoft.Extensions.FileProviders.IFileProvider,System.Collections.Generic.List{System.String})">
              <summary>
-            
              </summary>
              <param name="path"></param>
              <param name="fileProvider"></param>
