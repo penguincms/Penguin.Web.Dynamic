@@ -14,7 +14,7 @@ namespace Penguin.Web.Dynamic
         /// <summary>
         /// True if any path was found
         /// </summary>
-        public bool FoundPath => this.ValidationResults.Any(r => r.Exists);
+        public bool FoundPath => ValidationResults.Any(r => r.Exists);
 
         /// <summary>
         /// A collection of results for the checked paths
@@ -43,12 +43,12 @@ namespace Penguin.Web.Dynamic
 
             if (path.StartsWith("~", System.StringComparison.Ordinal))
             {
-                path = path.Substring(1);
+                path = path[1..];
             }
 
-            this.ValidationResults = new List<ViewValidationResult>();
+            ValidationResults = new List<ViewValidationResult>();
 
-            pathsToCheck = pathsToCheck ?? new List<string>()
+            pathsToCheck ??= new List<string>()
                 {
                     "~{0}.cshtml"
                 };
@@ -56,7 +56,7 @@ namespace Penguin.Web.Dynamic
             foreach (string thisPath in pathsToCheck)
             {
                 string toCheck = string.Format(CultureInfo.CurrentCulture, thisPath, path);
-                this.ValidationResults.Add(new ViewValidationResult(toCheck, fileProvider.GetFileInfo(toCheck).Exists));
+                ValidationResults.Add(new ViewValidationResult(toCheck, fileProvider.GetFileInfo(toCheck).Exists));
             }
         }
 
@@ -67,12 +67,9 @@ namespace Penguin.Web.Dynamic
         /// <returns>A matching path or null if errors are surpressed</returns>
         public string Result(bool SurpressError = false)
         {
-            if (!SurpressError && !this.FoundPath)
-            {
-                throw new FileNotFoundException("No views found in the following paths: \r\n\r\n" + string.Join("\r\n", this.ValidationResults.Select(v => v.Path)));
-            }
-
-            return this.ValidationResults.FirstOrDefault(r => r.Exists)?.Path;
+            return !SurpressError && !FoundPath
+                ? throw new FileNotFoundException("No views found in the following paths: \r\n\r\n" + string.Join("\r\n", ValidationResults.Select(v => v.Path)))
+                : (ValidationResults.FirstOrDefault(r => r.Exists)?.Path);
         }
     }
 }

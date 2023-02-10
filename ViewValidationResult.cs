@@ -17,8 +17,8 @@
 
         internal ViewValidationResult(string path, bool exists)
         {
-            this.Path = path;
-            this.Exists = exists;
+            Path = path;
+            Exists = exists;
         }
 
         /// <summary>
@@ -27,7 +27,7 @@
         /// <returns>Returns the path and the bool representing its existence for debug view</returns>
         public override string ToString()
         {
-            return $"{this.Path} - {this.Exists}";
+            return $"{Path} - {Exists}";
         }
     }
 }

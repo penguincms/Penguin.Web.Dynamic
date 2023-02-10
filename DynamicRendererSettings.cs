@@ -40,7 +40,7 @@ namespace Penguin.Web.Dynamic
         /// <summary>
         /// Render base types before inherited types
         /// </summary>
-        public bool StartAtBottom { get; set; } = false;
+        public bool StartAtBottom { get; set; }
 
         /// <summary>
         /// An optional override type for the renderer
@@ -60,10 +60,10 @@ namespace Penguin.Web.Dynamic
         /// <param name="fileProvider">A file provider used for checking for the existence of views</param>
         public DynamicRendererSettings(IMetaType type, IMetaProperty property, IFileProvider fileProvider)
         {
-            this.Type = type ?? throw new ArgumentNullException(nameof(type));
-            this.TypeFullName = this.Type.FullName;
-            this.Property = property;
-            this.FileProvider = fileProvider;
+            Type = type ?? throw new ArgumentNullException(nameof(type));
+            TypeFullName = Type.FullName;
+            Property = property;
+            FileProvider = fileProvider;
         }
 
         /// <summary>
@@ -78,10 +78,10 @@ namespace Penguin.Web.Dynamic
                 throw new ArgumentNullException(nameof(property));
             }
 
-            this.Type = property.Type;
-            this.TypeFullName = this.Type.FullName;
-            this.Property = property ?? throw new ArgumentNullException(nameof(property));
-            this.FileProvider = fileProvider;
+            Type = property.Type;
+            TypeFullName = Type.FullName;
+            Property = property ?? throw new ArgumentNullException(nameof(property));
+            FileProvider = fileProvider;
         }
 
         /// <summary>
@@ -114,9 +114,9 @@ namespace Penguin.Web.Dynamic
                 throw new ArgumentNullException(nameof(o));
             }
 
-            this.FileProvider = fileProvider;
-            this.Type = o.Type;
-            this.TypeFullName = this.Type.FullName;
+            FileProvider = fileProvider;
+            Type = o.Type;
+            TypeFullName = Type.FullName;
         }
 
         /// <summary>
@@ -126,8 +126,8 @@ namespace Penguin.Web.Dynamic
         /// <param name="fileProvider">A file provider used for checking for the existence of views</param>
         public DynamicRendererSettings(string typeFullName, IFileProvider fileProvider)
         {
-            this.FileProvider = fileProvider;
-            this.TypeFullName = typeFullName;
+            FileProvider = fileProvider;
+            TypeFullName = typeFullName;
         }
     }
 }
